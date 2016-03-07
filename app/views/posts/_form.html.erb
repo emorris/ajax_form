@@ -1,5 +1,6 @@
+<div id="user_area">
 <% if user_signed_in? %>
-  <li>
+  <li >
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
   </li>
 <% else %>
@@ -7,7 +8,7 @@
   <%= link_to('Login', new_user_session_path)  %>  
   </li>
 <% end %>
-
+</div>
 
 <h2>Log in</h2>
 
@@ -34,24 +35,3 @@
   </div>
 <% end %>
 
-<%= form_for(@post, remote: true) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
